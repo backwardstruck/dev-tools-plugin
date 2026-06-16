@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "dev-tools",
+  "description": "Private dev-tools plugin for Eric Rooney — PR review orchestrator and EM triage agents",
+  "owner": {
+    "name": "Eric Rooney"
+  },
+  "plugins": [
+    {
+      "name": "dev-tools",
+      "source": "./plugins/dev-tools",
+      "description": "PR review agents: multi-agent orchestrator with specialist sub-agents and personal EM triage",
+      "version": "1.0.0"
+    }
+  ]
+}

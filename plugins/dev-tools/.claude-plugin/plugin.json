@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "dev-tools",
+  "displayName": "Dev Tools",
+  "version": "1.0.0",
+  "description": "PR review agents: multi-agent orchestrator with specialist sub-agents and personal EM triage",
+  "author": {
+    "name": "Eric Rooney"
+  },
+  "userConfig": {
+    "gh_org": {
+      "type": "string",
+      "title": "GitHub Org",
+      "description": "GitHub org to scan for PRs (e.g. backwardstruck). Required by pr-review-orchestrator.",
+      "required": false
+    }
+  }
+}
