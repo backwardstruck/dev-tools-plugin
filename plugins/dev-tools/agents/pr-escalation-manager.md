@@ -133,7 +133,7 @@ Only report issues you are ≥80% confident about. If the code is ambiguous (e.g
 
 ## Memory
 
-Persist patterns across sessions at `/Users/ericrooney/Documents/Claude/.claude/agent-memory/pr-escalation-manager/`. Track:
+Persist patterns across sessions at `${CLAUDE_PLUGIN_DATA}/memory/`. Track:
 
 - Repos where recurring issue types appear
 - Authors with recurring mistake patterns (patterns only, not judgements)
