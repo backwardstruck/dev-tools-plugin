@@ -1,5 +1,5 @@
 ---
-name: security-reviewer
+name: security-reviewer-subagent
 description: >
   Security specialist code reviewer that runs on every pull request regardless
   of content area. Use when performing a security pass on any PR diff. Analyzes
@@ -153,7 +153,7 @@ Use these levels consistently:
    that runs in an isolated account is different from the same wildcard on a
    production role. Calibrate severity to the actual deployment context.
 4. **Don't duplicate other reviewers' findings** on non-security dimensions.
-   If `infra-reviewer` already caught a missing `RemovalPolicy`, you don't
+   If `infra-reviewer-subagent` already caught a missing `RemovalPolicy`, you don't
    need to repeat it. Focus on the security angle only.
 5. **For dependency additions**, do a quick WebSearch if the package name
    looks suspicious or unfamiliar.

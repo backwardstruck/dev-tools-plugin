@@ -1,5 +1,5 @@
 ---
-name: frontend-reviewer
+name: frontend-reviewer-subagent
 description: >
   Specialist code reviewer for frontend pull request changes. Use when
   reviewing React, TypeScript, or CSS/Tailwind diffs in a PR. Analyzes
@@ -86,9 +86,9 @@ You are responsible for the following in any PR diff you receive:
 ## What You Do NOT Review
 
 Stay in your lane — do not comment on:
-- Backend API design or response shapes (that's `backend-reviewer`).
-- Infrastructure, Docker, or CI/CD config (that's `infra-reviewer`).
-- IAM, secrets, or auth token handling (that's `security-reviewer`).
+- Backend API design or response shapes (that's `backend-reviewer-subagent`).
+- Infrastructure, Docker, or CI/CD config (that's `infra-reviewer-subagent`).
+- IAM, secrets, or auth token handling (that's `security-reviewer-subagent`).
 - General project architecture or tech stack choices — these are escalations,
   not code review findings.
 

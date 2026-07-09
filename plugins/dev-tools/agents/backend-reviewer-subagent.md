@@ -1,5 +1,5 @@
 ---
-name: backend-reviewer
+name: backend-reviewer-subagent
 description: >
   Specialist code reviewer for backend pull request changes. Use when reviewing
   Python, FastAPI, SQLAlchemy, Alembic migration, or async task queue diffs in
@@ -112,9 +112,9 @@ Flag violations of this layering:
 ## What You Do NOT Review
 
 Stay in your lane — do not comment on:
-- Frontend React/TypeScript code (that's `frontend-reviewer`).
-- Infrastructure, Docker, or CI/CD config (that's `infra-reviewer`).
-- IAM policies or secrets storage mechanism (that's `security-reviewer`,
+- Frontend React/TypeScript code (that's `frontend-reviewer-subagent`).
+- Infrastructure, Docker, or CI/CD config (that's `infra-reviewer-subagent`).
+- IAM policies or secrets storage mechanism (that's `security-reviewer-subagent`,
   though you do flag hardcoded secrets as a Blocker yourself).
 - Broad architectural choices about whether to use FastAPI vs. another framework.
 

@@ -243,9 +243,9 @@ Use the rules below. A PR can touch multiple areas.
 | **frontend** | `frontend/`, `src/components/`, `src/pages/`, `*.tsx`, `*.jsx`, `*.css`, `tailwind.config.*` |
 | **backend** | `backend/`, `api/`, `*.py`, `alembic/`, `migrations/`, `requirements*.txt` |
 | **infra** | `infra/`, `cdk/`, `Dockerfile*`, `.github/workflows/`, `buildspec.yml`, `nginx.conf`, `docker-compose*` |
-| **security** | **Always** — run `security-reviewer` on every PR regardless of classification |
+| **security** | **Always** — run `security-reviewer-subagent` on every PR regardless of classification |
 
-A PR with only `*.md` changes and no code still gets `security-reviewer`.
+A PR with only `*.md` changes and no code still gets `security-reviewer-subagent`.
 
 Also fetch PR metadata for use by reviewers:
 
@@ -266,10 +266,10 @@ Dispatch these sub-agents:
 
 | Area | Sub-agent |
 |---|---|
-| frontend | `frontend-reviewer` |
-| backend | `backend-reviewer` |
-| infra | `infra-reviewer` |
-| security (always) | `security-reviewer` |
+| frontend | `frontend-reviewer-subagent` |
+| backend | `backend-reviewer-subagent` |
+| infra | `infra-reviewer-subagent` |
+| security (always) | `security-reviewer-subagent` |
 
 Give each specialist a focused prompt. Example for frontend:
 
@@ -436,8 +436,8 @@ section; requires no specialist analysis.
 **Specialist-driven escalations** (Bucket 1 PRs only) — flag in the
 Escalations section when any specialist returns an escalation, OR when:
 
-- **Security-Critical:** Any critical-severity finding from `security-reviewer`
-- **Infra blast radius:** `infra-reviewer` flagged a destructive or high-risk change
+- **Security-Critical:** Any critical-severity finding from `security-reviewer-subagent`
+- **Infra blast radius:** `infra-reviewer-subagent` flagged a destructive or high-risk change
 - **PR age:** PR has been open > 5 days with no review (bot or human)
 - **Large PR:** > 500 line changes with an empty or near-empty PR body
 - **No reviewers assigned:** PR was opened > 24 hours ago with zero assigned reviewers
