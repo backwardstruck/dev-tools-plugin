@@ -10,6 +10,7 @@ Claude Code plugin for automated PR review. Runs a multi-agent loop across your 
 | `frontend-reviewer-subagent` | React, TypeScript, CSS/Tailwind |
 | `backend-reviewer-subagent` | Python, FastAPI, SQLAlchemy, migrations |
 | `infra-reviewer-subagent` | CDK, Dockerfiles, GitHub Actions, Nginx |
+| `content-reviewer-subagent` | Docs, Markdown, READMEs, content/config — contradictions, factual drift, link/version integrity |
 | `security-reviewer-subagent` | Runs on every PR regardless of content area |
 | `pr-escalation-manager` | Personal EM triage — assigned/watching/team modes |
 
@@ -85,6 +86,7 @@ pr-review-orchestrator
 │   ├── frontend-reviewer-subagent
 │   ├── backend-reviewer-subagent
 │   ├── infra-reviewer-subagent
+│   ├── content-reviewer-subagent
 │   └── security-reviewer-subagent (always)
 └── aggregates + posts consolidated comment
 ```

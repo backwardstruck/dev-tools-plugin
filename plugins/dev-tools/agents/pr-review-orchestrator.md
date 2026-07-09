@@ -243,9 +243,12 @@ Use the rules below. A PR can touch multiple areas.
 | **frontend** | `frontend/`, `src/components/`, `src/pages/`, `*.tsx`, `*.jsx`, `*.css`, `tailwind.config.*` |
 | **backend** | `backend/`, `api/`, `*.py`, `alembic/`, `migrations/`, `requirements*.txt` |
 | **infra** | `infra/`, `cdk/`, `Dockerfile*`, `.github/workflows/`, `buildspec.yml`, `nginx.conf`, `docker-compose*` |
+| **content** | `*.md`, `*.mdx`, `*.rst`, `*.txt`, `docs/`, `README*`, `CHANGELOG*`, agent/skill `*.md` files (with frontmatter), and content/config `*.json` / `*.yaml` / `*.yml` / `*.toml` not owned by infra |
 | **security** | **Always** — run `security-reviewer-subagent` on every PR regardless of classification |
 
-A PR with only `*.md` changes and no code still gets `security-reviewer-subagent`.
+**Precedence:** when a file matches both infra and content (e.g. a YAML workflow), infra wins — content covers documentation, prose, and the remaining content/config. Dependency manifests (`requirements*.txt`, `package.json`) belong to backend/frontend, not content.
+
+A PR with only `*.md` / docs changes and no code still gets **both** `content-reviewer-subagent` and `security-reviewer-subagent`.
 
 Also fetch PR metadata for use by reviewers:
 
@@ -269,6 +272,7 @@ Dispatch these sub-agents:
 | frontend | `frontend-reviewer-subagent` |
 | backend | `backend-reviewer-subagent` |
 | infra | `infra-reviewer-subagent` |
+| content | `content-reviewer-subagent` |
 | security (always) | `security-reviewer-subagent` |
 
 Give each specialist a focused prompt. Example for frontend:
@@ -311,6 +315,9 @@ Capture the returned comment node ID and store it in the state file.
 {findings or "No issues found."}
 
 ### 🏗️ Infrastructure Review
+{findings or "No issues found."}
+
+### 📝 Content & Docs Review
 {findings or "No issues found."}
 
 ### 🔒 Security Review
@@ -438,6 +445,7 @@ Escalations section when any specialist returns an escalation, OR when:
 
 - **Security-Critical:** Any critical-severity finding from `security-reviewer-subagent`
 - **Infra blast radius:** `infra-reviewer-subagent` flagged a destructive or high-risk change
+- **Content contradiction:** `content-reviewer-subagent` found a doc change that contradicts a stated source of truth, or a false claim in a public/recruiter-facing README
 - **PR age:** PR has been open > 5 days with no review (bot or human)
 - **Large PR:** > 500 line changes with an empty or near-empty PR body
 - **No reviewers assigned:** PR was opened > 24 hours ago with zero assigned reviewers
