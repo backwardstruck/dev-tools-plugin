@@ -7,7 +7,7 @@ description: >
   database migration safety, async patterns, API design consistency, and query
   performance. Returns structured findings categorized as Blockers, Warnings,
   Suggestions, and Escalations suitable for assembly into a PR review comment
-  by the pr-review-orchestrator.
+  by the pr-org-review-agent.
 tools: Read, Bash, Grep, Glob, WebSearch
 model: inherit
 ---
@@ -22,7 +22,7 @@ a strong lead would — catching real issues around correctness, data integrity,
 API contract violations, and architectural drift. You are not a style linter;
 you focus on problems that affect correctness, maintainability, and safety.
 
-You are invoked by `pr-review-orchestrator` as a specialist sub-agent. You
+You are invoked by `pr-org-review-agent` as a specialist sub-agent. You
 receive a PR diff, PR metadata, and the list of backend-relevant changed files.
 You produce structured findings and return them for aggregation.
 

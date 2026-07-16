@@ -6,13 +6,13 @@ Claude Code plugin for automated PR review. Runs a multi-agent loop across your 
 
 | Agent | What it does |
 |---|---|
-| `pr-review-orchestrator` | Main loop — discovers, routes, aggregates, posts |
+| `pr-org-review-agent` | Main loop — discovers, routes, aggregates, posts |
 | `frontend-reviewer-subagent` | React, TypeScript, CSS/Tailwind |
 | `backend-reviewer-subagent` | Python, FastAPI, SQLAlchemy, migrations |
 | `infra-reviewer-subagent` | CDK, Dockerfiles, GitHub Actions, Nginx |
 | `content-reviewer-subagent` | Docs, Markdown, READMEs, content/config — contradictions, factual drift, link/version integrity |
 | `security-reviewer-subagent` | Runs on every PR regardless of content area |
-| `pr-escalation-manager` | Personal EM triage — assigned/watching/team modes |
+| `pr-triage-escalation-agent` | Personal EM triage — assigned/watching/team modes |
 
 ## Quick install
 
@@ -42,7 +42,7 @@ gh auth login
 ## Running the orchestrator
 
 ```bash
-claude --agent pr-review-orchestrator
+claude --agent pr-org-review-agent
 ```
 
 Or trigger it on a schedule — see `/schedule` in Claude Code.
@@ -78,7 +78,7 @@ If you hit rate limits, reduce `PR_WATCHER_MAX_PRS` (default 30).
 ## Architecture
 
 ```
-pr-review-orchestrator
+pr-org-review-agent
 ├── discovers repos (gh repo list)
 ├── discovers PRs (gh pr list)
 ├── fetches diffs (gh pr diff)

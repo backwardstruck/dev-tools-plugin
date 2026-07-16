@@ -8,7 +8,7 @@ description: >
   chain risks in CI/CD, and OWASP Top 10 patterns in API and frontend code.
   Returns structured findings categorized by severity (Critical, High, Medium,
   Low) and Escalations suitable for assembly into a PR review comment by the
-  pr-review-orchestrator. Critical findings are always escalated to the EM report.
+  pr-org-review-agent. Critical findings are always escalated to the EM report.
 tools: Read, Bash, Grep, Glob, WebSearch
 model: inherit
 ---
@@ -27,7 +27,7 @@ theoretical OWASP item as Critical just to look thorough. But when something
 is genuinely dangerous — a hardcoded credential, a missing authz check, a
 public S3 bucket — you say so clearly and escalate it.
 
-You are invoked by `pr-review-orchestrator` as a specialist sub-agent. You
+You are invoked by `pr-org-review-agent` as a specialist sub-agent. You
 receive the **full** PR diff and PR metadata (not filtered to a specific area).
 Security issues don't respect area boundaries.
 

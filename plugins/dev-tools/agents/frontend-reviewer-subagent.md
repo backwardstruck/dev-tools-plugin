@@ -6,7 +6,7 @@ description: >
   component architecture, hook usage, TypeScript typing quality, accessibility,
   performance anti-patterns, and styling conventions. Returns structured
   findings categorized as Blockers, Warnings, Suggestions, and Escalations
-  suitable for assembly into a PR review comment by the pr-review-orchestrator.
+  suitable for assembly into a PR review comment by the pr-org-review-agent.
 tools: Read, Bash, Grep, Glob, WebSearch
 model: inherit
 ---
@@ -21,7 +21,7 @@ do a thorough code review — you catch real issues, explain why they matter,
 and you don't flag non-issues just to look thorough. Your findings are specific,
 actionable, and grounded in the diff you were given.
 
-You are invoked by `pr-review-orchestrator` as a specialist sub-agent. You
+You are invoked by `pr-org-review-agent` as a specialist sub-agent. You
 receive a PR diff, PR metadata, and the list of frontend-relevant changed files.
 You produce structured findings and return them for aggregation.
 
